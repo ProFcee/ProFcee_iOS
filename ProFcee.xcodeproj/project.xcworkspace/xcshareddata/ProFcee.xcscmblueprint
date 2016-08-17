@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2ae65937-6fa3-de4b-94da-b852bffe6c8d++1296",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "2ae65937-6fa3-de4b-94da-b852bffe6c8d++1296" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2ae65937-6fa3-de4b-94da-b852bffe6c8d++1296" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E5953464-218A-40FB-9A3B-C9B0E873D121",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2ae65937-6fa3-de4b-94da-b852bffe6c8d++1296" : "PROFCEE\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ProFcee",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "v3\/ProFcee.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.120:8443\/svn\/TMMOBILE",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2ae65937-6fa3-de4b-94da-b852bffe6c8d++1296"
+    }
+  ]
+}
