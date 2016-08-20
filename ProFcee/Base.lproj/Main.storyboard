@@ -83,6 +83,18 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are almost there! Two small things left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmW-UD-tLf" customClass="JHLabel">
+                                <rect key="frame" x="155" y="114" width="290" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                </variation>
+                            </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me_image_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="SU4-6q-mkj">
                                 <rect key="frame" x="20" y="195" width="86" height="86"/>
                                 <constraints>
@@ -110,6 +122,12 @@ Add you photo here</string>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRM YOUR LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcu-bc-rJn">
+                                <rect key="frame" x="20" y="321" width="182" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-Zl-PfL">
                                 <rect key="frame" x="0.0" y="348" width="600" height="180"/>
@@ -209,10 +227,12 @@ Add you photo here</string>
                                     <action selector="onclickBtnGetMe:" destination="cGK-Q7-kZg" eventType="touchUpInside" id="X5V-y3-CVa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are almost there! Two small things left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmW-UD-tLf" customClass="JHLabel">
-                                <rect key="frame" x="155" y="114" width="290" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Beu-5N-oGX" customClass="JHLabel">
+                                <rect key="frame" x="15" y="628" width="570" height="34"/>
+                                <string key="text">By the way, we’ve sent you the verification email.
+Please check it in order to be able to post new trends</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
@@ -221,18 +241,13 @@ Add you photo here</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRM YOUR LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcu-bc-rJn">
-                                <rect key="frame" x="20" y="321" width="182" height="17"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aCh-7Y-GUb" firstAttribute="width" secondItem="XwX-FH-reP" secondAttribute="width" id="1aT-gt-LQ6"/>
                             <constraint firstItem="tKm-Je-0zW" firstAttribute="centerY" secondItem="aCh-7Y-GUb" secondAttribute="centerY" constant="-15" id="2Nc-vT-sLh"/>
                             <constraint firstItem="bsX-Zl-PfL" firstAttribute="width" secondItem="XwX-FH-reP" secondAttribute="width" id="4pv-VN-hEF"/>
+                            <constraint firstItem="Beu-5N-oGX" firstAttribute="leading" secondItem="XwX-FH-reP" secondAttribute="leading" constant="15" id="9pd-Sy-cA2"/>
                             <constraint firstItem="PmW-UD-tLf" firstAttribute="top" secondItem="tKm-Je-0zW" secondAttribute="bottom" constant="5" id="AWZ-xe-N5W">
                                 <variation key="heightClass=regular-widthClass=regular" constant="5"/>
                             </constraint>
@@ -240,7 +255,9 @@ Add you photo here</string>
                             <constraint firstItem="B5R-IH-YJU" firstAttribute="top" secondItem="bsX-Zl-PfL" secondAttribute="bottom" constant="40" id="EuW-5H-rO4"/>
                             <constraint firstItem="dcu-bc-rJn" firstAttribute="leading" secondItem="SU4-6q-mkj" secondAttribute="leading" id="G2N-dL-eYc"/>
                             <constraint firstItem="bsX-Zl-PfL" firstAttribute="top" secondItem="dcu-bc-rJn" secondAttribute="bottom" constant="10" id="KTR-wL-fE6"/>
+                            <constraint firstItem="B5R-IH-YJU" firstAttribute="top" secondItem="Beu-5N-oGX" secondAttribute="bottom" constant="257" id="LIL-8W-BM4"/>
                             <constraint firstItem="tKm-Je-0zW" firstAttribute="centerX" secondItem="XwX-FH-reP" secondAttribute="centerX" id="Unp-9H-Q4W"/>
+                            <constraint firstItem="Beu-5N-oGX" firstAttribute="centerX" secondItem="B5R-IH-YJU" secondAttribute="centerX" id="Vh4-bf-0Fh"/>
                             <constraint firstItem="tKm-Je-0zW" firstAttribute="top" secondItem="mIH-ee-vHA" secondAttribute="bottom" constant="70" id="Yfc-Fc-5dK"/>
                             <constraint firstItem="7tk-BL-WjQ" firstAttribute="leading" secondItem="SU4-6q-mkj" secondAttribute="trailing" constant="15" id="ZNP-BQ-tHe"/>
                             <constraint firstItem="SU4-6q-mkj" firstAttribute="leading" secondItem="XwX-FH-reP" secondAttribute="leading" constant="20" id="aCi-FY-BbT"/>
@@ -252,6 +269,7 @@ Add you photo here</string>
                             <constraint firstItem="7tk-BL-WjQ" firstAttribute="bottom" secondItem="SU4-6q-mkj" secondAttribute="bottom" constant="-10" id="spG-b1-mvQ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-10"/>
                             </constraint>
+                            <constraint firstItem="Beu-5N-oGX" firstAttribute="top" secondItem="B5R-IH-YJU" secondAttribute="bottom" constant="10" id="u6M-92-6QN"/>
                             <constraint firstItem="B5R-IH-YJU" firstAttribute="centerX" secondItem="XwX-FH-reP" secondAttribute="centerX" id="v6k-2U-2Ht"/>
                             <constraint firstItem="bsX-Zl-PfL" firstAttribute="top" secondItem="SU4-6q-mkj" secondAttribute="bottom" constant="47" id="yqw-KK-F60"/>
                         </constraints>
@@ -259,6 +277,7 @@ Add you photo here</string>
                             <mask key="constraints">
                                 <exclude reference="Yfc-Fc-5dK"/>
                                 <exclude reference="yqw-KK-F60"/>
+                                <exclude reference="LIL-8W-BM4"/>
                             </mask>
                         </variation>
                     </view>
