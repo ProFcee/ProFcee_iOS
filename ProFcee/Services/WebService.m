@@ -453,6 +453,19 @@ constructingBodyWithBolock:^(id<AFMultipartFormData> formData) {
       }];
 }
 
+- (void)sendVerificationEmail:(NSString *)user_email
+                    Completed:(void (^)(NSString *, NSString *))completed {
+    [self POST:@"users/verify/email"
+    parameters:@{@"user_email": user_email}
+     completed:^(NSDictionary *dicResult, NSString *strError) {
+         if(!strError) {
+             completed(dicResult[SERVER_RESPONSE_MESSAGE], nil);
+         } else {
+             completed(nil, strError);
+         }
+     }];
+}
+
 - (void)getUserTrends:(NSNumber *)user_id
             Completed:(void (^)(NSArray *, NSString *))completed {
     [self GET:[NSString stringWithFormat:@"users/%d/trends", user_id.intValue]

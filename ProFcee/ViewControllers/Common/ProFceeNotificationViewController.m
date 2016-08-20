@@ -125,6 +125,43 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ProFceeNotificationObj *objNotification = [GlobalService sharedInstance].user_me.my_notifications[indexPath.row];
+    switch (objNotification.notification_type) {
+        case PROFCEE_PUSH_TYPE_AGREE_TREND:
+        case PROFCEE_PUSH_TYPE_REPORT_TREND:
+        case PROFCEE_PUSH_TYPE_SHARE_TREND:
+            [GlobalService sharedInstance].user_tabbar.selectedIndex = USER_ME_TABBAR_INDEX;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:USER_NOTIFICATION_SHOW_TREND
+                                                                object:nil
+                                                              userInfo:@{@"object_id": objNotification.notification_object_id}];
+            break;
+            
+        case PROFCEE_PUSH_TYPE_BLOCK_USER:
+            [GlobalService sharedInstance].user_tabbar.selectedIndex = USER_MESSAGE_TABBAR_INDEX;
+            break;
+            
+        case PROFCEE_PUSH_TYPE_SEND_MESSAGE:
+            SVPROGRESSHUD_PLEASE_WAIT;
+            [[WebService sharedInstance] getReplyById:objNotification.notification_object_id
+                                            Completed:^(ProFceeReplyObj *objReply, NSString *strError) {
+                                                if(!strError) {
+                                                    SVPROGRESSHUD_DISMISS;
+                                                    [GlobalService sharedInstance].user_tabbar.selectedIndex = USER_MESSAGE_TABBAR_INDEX;
+                                                    [[NSNotificationCenter defaultCenter] postNotificationName:USER_NOTIFICATION_SHOW_MESSAGE
+                                                                                                        object:nil
+                                                                                                      userInfo:@{@"object_id": objReply.reply_conversation_id}];
+                                                } else {
+                                                    SVPROGRESSHUD_ERROR(strError);
+                                                }
+                                            }];
+            break;
+    }
+    
+    [self.navigationController popViewControllerAnimated:NO];
+}
+
 #pragma mark - ProFceeNotificationTableViewCellDelegate
 - (void)onTapUserAvatar:(ProFceeNotificationObj *)objNotification {
     ProFceeOtherProfileViewController *otherProfileVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([ProFceeOtherProfileViewController class])];

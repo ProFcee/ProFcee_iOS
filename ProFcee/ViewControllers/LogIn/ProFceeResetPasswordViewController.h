@@ -11,10 +11,13 @@
 
 @interface ProFceeResetPasswordViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet JHTextField *m_txtConfirmationCode;
-@property (weak, nonatomic) IBOutlet JHTextField *m_txtNewPassword;
+@property (weak, nonatomic) IBOutlet JHTextField    *m_txtConfirmationCode;
+@property (weak, nonatomic) IBOutlet JHTextField    *m_txtNewPassword;
+
+@property (nonatomic, retain) NSString              *m_strEmail;
 
 - (IBAction)onClickBtnRestPassword:(id)sender;
 - (IBAction)onClickBtnBack:(id)sender;
+- (IBAction)onClickSendConfirmationCode:(id)sender;
 
 @end

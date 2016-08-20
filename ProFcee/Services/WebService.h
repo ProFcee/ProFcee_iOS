@@ -64,6 +64,8 @@ typedef enum {
                      Progress:(void (^)(double))progress
                     Completed:(void (^)(ProFceeUserObj *, NSString *))completed;
 - (void)deactivateUser:(void (^)(NSString *, NSString *))completed;
+- (void)sendVerificationEmail:(NSString *)user_email
+                    Completed:(void (^)(NSString *, NSString *))completed;
 - (void)getUserTrends:(NSNumber *)user_id
             Completed:(void (^)(NSArray *, NSString *))completed;
 - (void)getUserAgreedTrends:(NSNumber *)user_id

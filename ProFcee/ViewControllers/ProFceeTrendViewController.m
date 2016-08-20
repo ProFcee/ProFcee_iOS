@@ -178,7 +178,7 @@
     
     CGFloat fTrendImageHeight = 0;
     if(objTrendInfo.trend_info_trend.trend_image.length > 0) {
-        fTrendImageHeight = (CGRectGetWidth(self.view.frame) - 20) * TREND_IMAGE_RATIO;
+        fTrendImageHeight = (CGRectGetWidth(self.view.frame) - (IS_IPHONE? 20 : 120)) * TREND_IMAGE_RATIO;
     }
     cell.m_constraintTrendImageHeight.constant = fTrendImageHeight;
     
@@ -339,8 +339,8 @@
                 
                 NSString *shareBranchLink = [NSString stringWithFormat:@" %@ Click here www.profcee.com for more.", strShareText];
                 
-                NSString * urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@", shareBranchLink];
-                NSURL * whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                NSString *urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@", shareBranchLink];
+                NSURL *whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                 if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
                     [[UIApplication sharedApplication] openURL: whatsappURL];
                 } else {
@@ -362,6 +362,12 @@
                     
                     SLComposeViewController *twitter = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
                     [twitter setInitialText:strShareText];
+                    if(m_objTrendInfo.trend_info_trend.trend_image.length > 0) {
+                        NSInteger nRow = [self.m_aryTrendInfos indexOfObject:m_objTrendInfo];
+                        ProFceeTrendTableViewCell *cell = [self.m_tblTrend cellForRowAtIndexPath:[NSIndexPath indexPathForRow:nRow inSection:0]];
+                        [twitter addImage:cell.m_imgTrend.image];
+                    }
+                    
                     [self presentViewController:twitter animated:YES completion:nil];
                     
                     [twitter setCompletionHandler:^(SLComposeViewControllerResult result){
@@ -418,7 +424,14 @@
                 
                 NSString *shareBranchLink = [NSString stringWithFormat:@" %@ Click here www.profcee.com for more.", strShareText];
                 
-                UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[shareBranchLink] applicationActivities:nil];
+                NSMutableArray *items = [NSMutableArray arrayWithObject:shareBranchLink];
+                if(m_objTrendInfo.trend_info_trend.trend_image.length > 0) {
+                    NSInteger nRow = [self.m_aryTrendInfos indexOfObject:m_objTrendInfo];
+                    ProFceeTrendTableViewCell *cell = [self.m_tblTrend cellForRowAtIndexPath:[NSIndexPath indexPathForRow:nRow inSection:0]];
+                    [items insertObject:cell.m_imgTrend.image atIndex:0];
+                }
+                
+                UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
                 [activityVC setValue:strTitle forKey:@"subject"];
                 
                 NSArray *excludeActivities = @[UIActivityTypeAirDrop,
@@ -456,6 +469,15 @@
             });
             break;
     }
+}
+
+- (UIDocumentInteractionController *) setupControllerWithURL:(NSURL*)fileURL
+                                               usingDelegate:(id )interactionDelegate {
+    
+    self.documentationInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+    self.documentationInteractionController.delegate = interactionDelegate;
+    
+    return self.documentationInteractionController;
 }
 
 #pragma mark - FBSDKSharingDelegate

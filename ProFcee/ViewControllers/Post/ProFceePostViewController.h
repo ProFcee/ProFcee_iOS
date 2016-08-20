@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <TOCropViewController/TOCropViewController.h>
 
-@interface ProFceePostViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, TOCropViewControllerDelegate> {
+@interface ProFceePostViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, TOCropViewControllerDelegate, UIAlertViewDelegate> {
+    BOOL    m_isComeFromTrendImage;
     BOOL    m_hasTrendImage;
 }
 

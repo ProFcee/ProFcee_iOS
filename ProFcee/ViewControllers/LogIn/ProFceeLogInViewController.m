@@ -7,6 +7,7 @@
 //
 
 #import "ProFceeLogInViewController.h"
+#import "ProFceeResetPasswordViewController.h"
 #import <SHEmailValidator/SHEmailValidator.h>
 
 @interface ProFceeLogInViewController ()
@@ -96,6 +97,7 @@
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"Send", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [[alert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeEmailAddress];
     [alert show];
 }
 
@@ -114,7 +116,8 @@
                                                            if(!strError) {
                                                                SVPROGRESSHUD_SUCCESS(strResult);
                                                                
-                                                               UIViewController *resetPasswordVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProFceeResetPasswordViewController"];
+                                                               ProFceeResetPasswordViewController *resetPasswordVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProFceeResetPasswordViewController"];
+                                                               resetPasswordVC.m_strEmail = strEmail;
                                                                [self.navigationController pushViewController:resetPasswordVC animated:YES];
                                                            } else {
                                                                SVPROGRESSHUD_ERROR(strResult);

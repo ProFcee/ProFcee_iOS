@@ -58,6 +58,18 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)onClickSendConfirmationCode:(id)sender {
+    SVPROGRESSHUD_PLEASE_WAIT;
+    [[WebService sharedInstance] forgotPasswordWithEmail:self.m_strEmail
+                                               Completed:^(NSString *strResult, NSString *strError) {
+                                                   if(!strError) {
+                                                       SVPROGRESSHUD_SUCCESS(strResult);
+                                                   } else {
+                                                       SVPROGRESSHUD_ERROR(strResult);
+                                                   }
+                                               }];
+}
+
 - (BOOL)validateForm {
     BOOL isValid = NO;
     

@@ -19,10 +19,10 @@
     ProFceeTrendInfoObj *m_objTrendInfo;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel        *m_lblNotification;
-@property (weak, nonatomic) IBOutlet UITableView    *m_tblTrend;
-
-@property (nonatomic, retain) NSArray               *m_aryTrendInfos;
+@property (weak, nonatomic) IBOutlet UILabel                *m_lblNotification;
+@property (weak, nonatomic) IBOutlet UITableView            *m_tblTrend;
+@property(nonatomic,retain) UIDocumentInteractionController *documentationInteractionController;
+@property (nonatomic, retain) NSArray                       *m_aryTrendInfos;
 
 - (IBAction)onClickBtnSearch:(id)sender;
 - (IBAction)onClickBtnMore:(id)sender;

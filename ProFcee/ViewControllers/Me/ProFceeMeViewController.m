@@ -26,6 +26,25 @@
     
     self.m_tblTrend.rowHeight = UITableViewAutomaticDimension;
     self.m_tblTrend.estimatedRowHeight = 110.0f;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMyTrend:) name:USER_NOTIFICATION_SHOW_TREND object:nil];
+}
+
+- (void)showMyTrend:(NSNotification *)notification {
+    self.m_segTrend.selectedSegmentIndex = 0;
+    
+    NSInteger nRow = 0;
+    for(int nIndex = 0; nIndex < m_aryMyTrends.count; nIndex++) {
+        ProFceeTrendInfoObj *objTrendInfo = m_aryMyTrends[nIndex];
+        if(objTrendInfo.trend_info_trend.trend_id.intValue == [notification.userInfo[@"object_id"] intValue]) {
+            nRow = nIndex;
+            break;
+        }
+    }
+    
+    [self.m_tblTrend scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:nRow inSection:0]
+                           atScrollPosition:UITableViewScrollPositionMiddle
+                                   animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -112,7 +131,7 @@
         
         CGFloat fTrendImageHeight = 0;
         if(objTrendInfo.trend_info_trend.trend_image.length > 0) {
-            fTrendImageHeight = (CGRectGetWidth(self.view.frame) - 20) * TREND_IMAGE_RATIO;
+            fTrendImageHeight = (CGRectGetWidth(self.view.frame) - (IS_IPHONE? 20 : 120)) * TREND_IMAGE_RATIO;
         }
         cell.m_constraintTrendImageHeight.constant = fTrendImageHeight;
         

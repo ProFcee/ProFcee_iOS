@@ -72,7 +72,7 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for your registering!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKm-Je-0zW" customClass="JHLabel">
-                                <rect key="frame" x="176" y="35" width="248" height="22"/>
+                                <rect key="frame" x="176" y="87" width="248" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.38823529410000002" green="0.019607843140000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -210,7 +210,7 @@ Add you photo here</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are almost there! Two small things left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmW-UD-tLf" customClass="JHLabel">
-                                <rect key="frame" x="155" y="62" width="290" height="18"/>
+                                <rect key="frame" x="155" y="114" width="290" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -967,7 +967,21 @@ Add you photo here</string>
                             <constraint firstItem="IBZ-fK-J3k" firstAttribute="top" secondItem="FlK-pq-bRZ" secondAttribute="bottom" constant="5" id="Onc-Bf-XZg"/>
                             <constraint firstItem="FlK-pq-bRZ" firstAttribute="width" secondItem="8La-4S-hTQ" secondAttribute="width" id="QnH-DH-tA1"/>
                             <constraint firstItem="FlK-pq-bRZ" firstAttribute="top" secondItem="8La-4S-hTQ" secondAttribute="bottom" constant="5" id="iyN-L3-H1z"/>
+                            <constraint firstItem="FlK-pq-bRZ" firstAttribute="leading" secondItem="Io4-dE-IZ2" secondAttribute="leading" id="soL-2i-37h">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="soL-2i-37h"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="QnH-DH-tA1"/>
+                                <include reference="soL-2i-37h"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="fgC-W3-fYj"/>
@@ -1064,6 +1078,9 @@ Add you photo here</string>
                             <constraint firstItem="6fm-2B-D7o" firstAttribute="centerX" secondItem="oRB-iL-zYH" secondAttribute="centerX" id="9lJ-6G-Jd6"/>
                             <constraint firstItem="tA1-HR-AAe" firstAttribute="top" secondItem="c7B-95-ILH" secondAttribute="bottom" constant="10" id="Byr-h7-dhU"/>
                             <constraint firstItem="oRB-iL-zYH" firstAttribute="width" secondItem="UBY-dH-aIA" secondAttribute="width" id="Cgi-xQ-nfu"/>
+                            <constraint firstItem="tA1-HR-AAe" firstAttribute="leading" secondItem="UBY-dH-aIA" secondAttribute="leading" id="Fls-y1-qLp">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="0j7-hl-qrD" firstAttribute="top" secondItem="tA1-HR-AAe" secondAttribute="bottom" constant="5" id="azf-Ml-QYV"/>
                             <constraint firstItem="oRB-iL-zYH" firstAttribute="centerX" secondItem="UBY-dH-aIA" secondAttribute="centerX" id="crx-zb-dFc"/>
                             <constraint firstItem="tA1-HR-AAe" firstAttribute="centerX" secondItem="UBY-dH-aIA" secondAttribute="centerX" id="icE-kI-ctO"/>
@@ -1078,8 +1095,15 @@ Add you photo here</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Fls-y1-qLp"/>
                                 <exclude reference="xM6-A0-AtI"/>
                                 <exclude reference="zVZ-04-2U0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Fls-y1-qLp"/>
+                                <exclude reference="loH-Bh-hKl"/>
                             </mask>
                         </variation>
                     </view>
@@ -1233,8 +1257,8 @@ Add you photo here</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzG-cd-MTg">
                                                 <rect key="frame" x="0.0" y="219" width="600" height="317"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to add the photo to the Trend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stu-jC-jaD" customClass="JHLabel">
-                                                        <rect key="frame" x="175" y="15" width="251" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on image to delete it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stu-jC-jaD" customClass="JHLabel">
+                                                        <rect key="frame" x="220" y="15" width="160" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -2023,6 +2047,9 @@ Add you photo here</string>
                             <constraint firstItem="rso-xC-PoP" firstAttribute="centerX" secondItem="OdR-mg-Ari" secondAttribute="centerX" id="FrF-In-HIx"/>
                             <constraint firstItem="7qe-5F-pWv" firstAttribute="top" secondItem="rso-xC-PoP" secondAttribute="bottom" id="Jo9-V8-ORI"/>
                             <constraint firstAttribute="trailing" secondItem="iwn-s6-eXW" secondAttribute="trailing" id="KHz-gw-g0B"/>
+                            <constraint firstItem="tXA-VI-PbZ" firstAttribute="leading" secondItem="OdR-mg-Ari" secondAttribute="leading" id="Lmu-bn-nok">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="tXA-VI-PbZ" firstAttribute="top" secondItem="o4i-KY-mL6" secondAttribute="bottom" constant="10" id="Onr-UI-hXm"/>
                             <constraint firstItem="RJw-3o-V13" firstAttribute="centerX" secondItem="7qe-5F-pWv" secondAttribute="centerX" id="QDO-ir-MQo"/>
                             <constraint firstItem="rso-xC-PoP" firstAttribute="width" secondItem="OdR-mg-Ari" secondAttribute="width" id="SC3-NO-SVF"/>
@@ -2041,6 +2068,13 @@ Add you photo here</string>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="f1f-5G-CLv"/>
+                                <exclude reference="Lmu-bn-nok"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Lmu-bn-nok"/>
+                                <exclude reference="box-zN-Acq"/>
                             </mask>
                         </variation>
                     </view>
@@ -2399,7 +2433,7 @@ Add you photo here</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7V-PC-3fM">
-                                        <rect key="frame" x="10" y="22" width="40" height="40"/>
+                                        <rect key="frame" x="10" y="23" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="SNX-rx-qzN"/>
                                             <constraint firstAttribute="width" constant="40" id="ijF-Uq-Zki"/>
@@ -2736,7 +2770,7 @@ Add you photo here</string>
                                                     </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="corner_radius">
                                                         <real key="value" value="5"/>
@@ -2786,6 +2820,25 @@ Add you photo here</string>
                                                     <action selector="onClickBtnRestPassword:" destination="rna-t3-rzx" eventType="touchUpInside" id="dwe-fj-4XW"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWD-Oe-Ume" customClass="JHButton">
+                                                <rect key="frame" x="160" y="487" width="280" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="mew-B2-00k"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Resend confirmation code">
+                                                    <color key="titleColor" red="0.78823529410000004" green="0.1019607843" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="onClickSendConfirmationCode:" destination="rna-t3-rzx" eventType="touchUpInside" id="dzZ-y4-eWm"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2793,13 +2846,16 @@ Add you photo here</string>
                                             <constraint firstItem="9gQ-Sv-hAh" firstAttribute="top" secondItem="Ogw-5l-AIO" secondAttribute="top" constant="70" id="3De-tM-6b0">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="170"/>
                                             </constraint>
+                                            <constraint firstItem="kWD-Oe-Ume" firstAttribute="width" secondItem="y7x-f9-rnE" secondAttribute="width" id="AAN-fJ-liA"/>
                                             <constraint firstItem="iqL-ES-7VV" firstAttribute="centerX" secondItem="9gQ-Sv-hAh" secondAttribute="centerX" id="FAN-cN-B9A"/>
                                             <constraint firstItem="y7x-f9-rnE" firstAttribute="height" secondItem="roJ-mJ-mSK" secondAttribute="height" id="K8D-ac-W7z"/>
+                                            <constraint firstItem="kWD-Oe-Ume" firstAttribute="top" secondItem="y7x-f9-rnE" secondAttribute="bottom" constant="20" id="KvX-XJ-Xkl"/>
                                             <constraint firstItem="y7x-f9-rnE" firstAttribute="width" secondItem="roJ-mJ-mSK" secondAttribute="width" id="Q4B-iR-xMA"/>
                                             <constraint firstItem="QWV-tG-9N2" firstAttribute="centerX" secondItem="9gQ-Sv-hAh" secondAttribute="centerX" id="RYi-LC-fsw"/>
                                             <constraint firstItem="iqL-ES-7VV" firstAttribute="top" secondItem="9gQ-Sv-hAh" secondAttribute="bottom" constant="30" id="Ran-J4-QaG"/>
                                             <constraint firstItem="9gQ-Sv-hAh" firstAttribute="centerX" secondItem="Ogw-5l-AIO" secondAttribute="centerX" id="SLy-Pk-Bg9"/>
                                             <constraint firstItem="roJ-mJ-mSK" firstAttribute="height" secondItem="QWV-tG-9N2" secondAttribute="height" id="TVp-o1-IGh"/>
+                                            <constraint firstItem="kWD-Oe-Ume" firstAttribute="centerX" secondItem="y7x-f9-rnE" secondAttribute="centerX" id="ZvU-8b-mBj"/>
                                             <constraint firstItem="roJ-mJ-mSK" firstAttribute="width" secondItem="QWV-tG-9N2" secondAttribute="width" id="cNg-Xe-ZcO"/>
                                             <constraint firstItem="roJ-mJ-mSK" firstAttribute="centerX" secondItem="QWV-tG-9N2" secondAttribute="centerX" id="evN-Hp-mSn"/>
                                             <constraint firstItem="QWV-tG-9N2" firstAttribute="top" secondItem="9gQ-Sv-hAh" secondAttribute="bottom" constant="50" id="gbW-qt-dSS"/>
@@ -3686,6 +3742,9 @@ Add you photo here</string>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="mQ9-Xi-Bix" firstAttribute="leading" secondItem="Lq2-jd-FQy" secondAttribute="leading" id="JrR-hW-tGw">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="mQ9-Xi-Bix" firstAttribute="top" secondItem="2Gc-Fb-loW" secondAttribute="bottom" constant="5" id="WvD-uf-lnF"/>
                             <constraint firstItem="2Gc-Fb-loW" firstAttribute="top" secondItem="Lq2-jd-FQy" secondAttribute="topMargin" id="Z0S-py-UM7"/>
                             <constraint firstItem="mQ9-Xi-Bix" firstAttribute="width" secondItem="2Gc-Fb-loW" secondAttribute="width" id="cDx-oL-6GF"/>
@@ -3694,6 +3753,17 @@ Add you photo here</string>
                             <constraint firstItem="Ynd-cr-WBZ" firstAttribute="top" secondItem="mQ9-Xi-Bix" secondAttribute="bottom" constant="5" id="wrN-8e-wtR"/>
                             <constraint firstItem="mQ9-Xi-Bix" firstAttribute="centerX" secondItem="2Gc-Fb-loW" secondAttribute="centerX" id="xqL-k7-ITY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JrR-hW-tGw"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="JrR-hW-tGw"/>
+                                <exclude reference="cDx-oL-6GF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="tsR-oW-nP2"/>
@@ -3824,9 +3894,8 @@ Add you photo here</string>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Bold"/>
                                                         </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                        <variation key="heightClass=regular-widthClass=regular">
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <rect key="frame" x="39" y="15" width="324" height="24"/>
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgd-Fa-zLA" customClass="JHLabel">
@@ -3842,9 +3911,8 @@ Karnataka, India</string>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
                                                         </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                                        <variation key="heightClass=regular-widthClass=regular">
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <rect key="frame" x="81" y="54" width="239" height="120"/>
                                                         </variation>
                                                     </label>
                                                 </subviews>
@@ -4325,7 +4393,7 @@ Karnataka, India</string>
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87f-cW-DqF" customClass="JHLabel">
-                                                <rect key="frame" x="159" y="15" width="281" height="34"/>
+                                                <rect key="frame" x="160" y="15" width="281" height="34"/>
                                                 <string key="text">Send private message to users who agree 
 with your Trend</string>
                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
@@ -4352,7 +4420,7 @@ with your Trend</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mw4-HG-o86" customClass="JHLabel">
-                                                        <rect key="frame" x="15" y="14" width="70" height="21"/>
+                                                        <rect key="frame" x="15" y="15" width="70" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
@@ -5105,6 +5173,9 @@ with your Trend</string>
                             <constraint firstItem="pff-z2-zYr" firstAttribute="top" secondItem="jFy-MK-Jhu" secondAttribute="bottom" id="O8A-Wx-qZd"/>
                             <constraint firstItem="5Wd-6a-sSx" firstAttribute="width" secondItem="jFy-MK-Jhu" secondAttribute="width" id="RGx-YP-mDe"/>
                             <constraint firstItem="MRf-Wq-Xt8" firstAttribute="top" secondItem="5Wd-6a-sSx" secondAttribute="bottom" id="RJM-xc-0Br"/>
+                            <constraint firstItem="5Wd-6a-sSx" firstAttribute="leading" secondItem="djK-Gp-Q3B" secondAttribute="leading" id="RcP-c2-H1Q">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="5Wd-6a-sSx" firstAttribute="top" secondItem="jFy-MK-Jhu" secondAttribute="bottom" id="Txv-QY-jWy"/>
                             <constraint firstItem="wbT-cz-Pv9" firstAttribute="width" secondItem="jFy-MK-Jhu" secondAttribute="width" id="XMg-3g-2df"/>
                             <constraint firstItem="ats-SM-aXy" firstAttribute="width" secondItem="djK-Gp-Q3B" secondAttribute="width" id="bbL-FY-swu"/>
@@ -5118,6 +5189,17 @@ with your Trend</string>
                             <constraint firstItem="ats-SM-aXy" firstAttribute="top" secondItem="djK-Gp-Q3B" secondAttribute="topMargin" id="vFX-ZX-W8K"/>
                             <constraint firstItem="wbT-cz-Pv9" firstAttribute="top" secondItem="jFy-MK-Jhu" secondAttribute="bottom" id="ySj-Dt-JkS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RcP-c2-H1Q"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="RGx-YP-mDe"/>
+                                <include reference="RcP-c2-H1Q"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="m_imgNoSearch" destination="vcM-6T-TeM" id="dQX-Ny-fmM"/>

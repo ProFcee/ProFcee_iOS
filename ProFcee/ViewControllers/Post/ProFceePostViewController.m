@@ -24,16 +24,23 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if([GlobalService sharedInstance].user_me.my_settings.settings_suggest_typing){
-        [self.m_txtTrendBody setAutocorrectionType:UITextAutocorrectionTypeYes];
+    if(m_isComeFromTrendImage) {
+        m_isComeFromTrendImage = NO;
     } else {
-        [self.m_txtTrendBody setAutocorrectionType:UITextAutocorrectionTypeNo];
-    }
-    
-    if([GlobalService sharedInstance].user_me.my_settings.settings_spell_typing){
-        [self.m_txtTrendBody setSpellCheckingType:UITextSpellCheckingTypeYes];
-    } else {
-        [self.m_txtTrendBody setSpellCheckingType:UITextSpellCheckingTypeNo];
+        self.m_txtTrendBody.text = @"";
+        self.m_lblCharacters.text = @"147 characters left";
+        
+        if([GlobalService sharedInstance].user_me.my_settings.settings_suggest_typing){
+            [self.m_txtTrendBody setAutocorrectionType:UITextAutocorrectionTypeYes];
+        } else {
+            [self.m_txtTrendBody setAutocorrectionType:UITextAutocorrectionTypeNo];
+        }
+        
+        if([GlobalService sharedInstance].user_me.my_settings.settings_spell_typing){
+            [self.m_txtTrendBody setSpellCheckingType:UITextSpellCheckingTypeYes];
+        } else {
+            [self.m_txtTrendBody setSpellCheckingType:UITextSpellCheckingTypeNo];
+        }
     }
 }
 
@@ -48,14 +55,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)onClickBtnBack:(id)sender {
     [GlobalService sharedInstance].user_tabbar.selectedIndex = USER_HOME_TABBAR_INDEX;
@@ -79,10 +86,12 @@
                                                               imagePicker.modalPresentationStyle = UIModalPresentationFullScreen;
                                                               imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
                                                               [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                                                  m_isComeFromTrendImage = YES;
                                                                   [self presentViewController:imagePicker animated:YES completion:nil];
                                                               }];
                                                           }
                                                       }];
+    
     UIAlertAction *btnPhotoGallery = [UIAlertAction actionWithTitle:@"Photo Gallery"
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * _Nonnull action) {
@@ -91,16 +100,30 @@
                                                                     imagePicker.delegate = self;
                                                                     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                                                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                                                        m_isComeFromTrendImage = YES;
                                                                         [self presentViewController:imagePicker animated:YES completion:nil];
                                                                     }];
                                                                 }
                                                             }];
+    
+    [sheet addAction:btnCamera];
+    [sheet addAction:btnPhotoGallery];
+    
+    if(m_hasTrendImage) {
+        UIAlertAction *btnDeleteImage = [UIAlertAction actionWithTitle:@"Delete Image"
+                                                                 style:UIAlertActionStyleDestructive
+                                                               handler:^(UIAlertAction * _Nonnull action) {
+                                                                   self.m_imgTrendImage.image = nil;
+                                                                   m_hasTrendImage = NO;
+                                                               }];
+        [sheet addAction:btnDeleteImage];
+    }
+    
     UIAlertAction *btnCancel = [UIAlertAction actionWithTitle:@"Cancel"
                                                         style:UIAlertActionStyleCancel
                                                       handler:nil];
     
-    [sheet addAction:btnCamera];
-    [sheet addAction:btnPhotoGallery];
+    
     [sheet addAction:btnCancel];
     
     UIPopoverPresentationController *popPresenter = [sheet popoverPresentationController];
@@ -118,6 +141,8 @@
         cropVC.aspectRatioLockEnabled = YES;
         cropVC.resetAspectRatioEnabled = NO;
         cropVC.delegate = self;
+        
+        m_isComeFromTrendImage = YES;
         [self presentViewController:cropVC animated:NO completion:nil];
     }];
 }
@@ -162,7 +187,17 @@
                                                   
                                                   [GlobalService sharedInstance].user_tabbar.selectedIndex = USER_ME_TABBAR_INDEX;
                                               } else {
-                                                  SVPROGRESSHUD_ERROR(strError);
+                                                  if(![GlobalService sharedInstance].user_me.my_user.user_active) {
+                                                      SVPROGRESSHUD_DISMISS;
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please active your account"
+                                                                                                      message:@"In order to post a trend you have to activate your account. We’ve sent you the verification email. If you didn’t get it, we can resend it for you"
+                                                                                                     delegate:self
+                                                                                            cancelButtonTitle:@"Cancel"
+                                                                                            otherButtonTitles:@"Resend email", nil];
+                                                      [alert show];
+                                                  } else {
+                                                      SVPROGRESSHUD_ERROR(strError);
+                                                  }
                                               }
                                           }];
     } else {
@@ -177,13 +212,28 @@
     
     if(textView.text.length == 147)
         return NO;
-
+    
     return YES;
 }
 
 -(void)textViewDidChange:(UITextView *)textView {
     long int len = textView.text.length;
-    self.m_lblCharacters.text =[NSString stringWithFormat:@"%li characters left", 147 - len];
+    self.m_lblCharacters.text = [NSString stringWithFormat:@"%li characters left", 147 - len];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1) {
+        SVPROGRESSHUD_PLEASE_WAIT;
+        [[WebService sharedInstance] sendVerificationEmail:[GlobalService sharedInstance].user_me.my_user.user_email
+                                                 Completed:^(NSString *strResult, NSString *strError) {
+                                                     if(!strError) {
+                                                         SVPROGRESSHUD_SUCCESS(strResult);
+                                                     } else {
+                                                         SVPROGRESSHUD_ERROR(strError);
+                                                     }
+                                                 }];
+    }
 }
 
 @end

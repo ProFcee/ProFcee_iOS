@@ -75,6 +75,9 @@
 #define USER_NOTIFICATION_GOT_SETTINGS          @"UserNotificationGotSettings"
 #define USER_NOTIFICATION_GOT_MESSAGE           @"UserNotificationGotMessage"
 #define USER_NOTIFICATION_TOKEN_EXPIRED         @"UserNotificationTokenExpired"
+#define USER_NOTIFICATION_SHOW_TREND            @"UserNotificationShowTrend"
+#define USER_NOTIFICATION_SHOW_MESSAGE          @"UserNotificationShowMessage"
+#define USER_NOTIFICATION_CREATE_CHATROOM       @"UserNotificationCreateChatroom"
 
 //AssetsName
 #define ASSETS_AVATAR_PLACEHOLDER               @"image_avatar_placeholder"

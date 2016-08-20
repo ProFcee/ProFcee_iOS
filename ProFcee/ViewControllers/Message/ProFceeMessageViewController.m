@@ -28,6 +28,16 @@
                                                  name:USER_NOTIFICATION_GOT_MESSAGE
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showMessage:)
+                                                 name:USER_NOTIFICATION_SHOW_MESSAGE
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(createChatroom)
+                                                 name:USER_NOTIFICATION_CREATE_CHATROOM
+                                               object:nil];
+    
     m_aryTmpChatRooms = [[NSMutableArray alloc] init];
     
     SVPROGRESSHUD_PLEASE_WAIT;
@@ -43,6 +53,23 @@
             SVPROGRESSHUD_ERROR(strError);
         }
     }];
+}
+
+- (void)showMessage:(NSNotification *)notification {
+    for(int nIndex = 0; nIndex < m_aryChatRooms.count; nIndex++) {
+        ProFceeChatRoomObj *objChatRoom = m_aryChatRooms[nIndex];
+        if(objChatRoom.conversation_id.intValue == [notification.userInfo[@"object_id"] intValue]) {
+            ProFceeChatViewController *chatVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([ProFceeChatViewController class])];
+            chatVC.m_objChatRoom = objChatRoom;
+            [self.navigationController pushViewController:chatVC animated:YES];
+            
+            break;
+        }
+    }
+}
+
+- (void)createChatroom {
+    self.m_segKind.selectedSegmentIndex = 2;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -82,7 +82,11 @@
                                           Completed:^(NSString *strResult, NSString *strError) {
                                               if(!strError) {
                                                   SVPROGRESSHUD_DISMISS;
-                                                  [self.navigationController popViewControllerAnimated:YES];
+                                                  [self.navigationController popViewControllerAnimated:NO];
+                                                  [GlobalService sharedInstance].user_tabbar.selectedIndex = USER_MESSAGE_TABBAR_INDEX;
+                                                  
+                                                  [[NSNotificationCenter defaultCenter] postNotificationName:USER_NOTIFICATION_CREATE_CHATROOM
+                                                                                                      object:nil];
                                               } else {
                                                   SVPROGRESSHUD_ERROR(strError);
                                               }

@@ -37,6 +37,18 @@
     } else {
         self.m_viewSearchHistory.hidden = YES;
     }
+    
+    if([GlobalService sharedInstance].user_me.my_settings.settings_suggest_typing){
+        [self.m_searchBar setAutocorrectionType:UITextAutocorrectionTypeYes];
+    } else {
+        [self.m_searchBar setAutocorrectionType:UITextAutocorrectionTypeNo];
+    }
+    
+    if([GlobalService sharedInstance].user_me.my_settings.settings_spell_typing){
+        [self.m_searchBar setSpellCheckingType:UITextSpellCheckingTypeYes];
+    } else {
+        [self.m_searchBar setSpellCheckingType:UITextSpellCheckingTypeNo];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +73,7 @@
 - (IBAction)onClickSearchKind:(id)sender {
     self.m_tblUser.hidden = YES;
     self.m_tblTrend.hidden = YES;
+    self.m_viewSearchHistory.hidden = NO;
     self.m_searchBar.text = @"";
     
     for(int nIndex = 10; nIndex < 14; nIndex++) {
@@ -127,12 +140,6 @@
                                              }
                                          }];
     }
-}
-
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    self.m_viewSearchHistory.hidden = YES;
-    
-    return YES;
 }
 
 #pragma mark - UITableViewDataSource
