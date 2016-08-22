@@ -26,7 +26,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.m_constraintViewHeight.constant = (CGRectGetWidth(self.view.frame) - 20) * TREND_IMAGE_RATIO;
+    self.m_constraintViewHeight.constant = (CGRectGetWidth(self.view.frame) - (IS_IPHONE? 20 : 120)) * TREND_IMAGE_RATIO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self showFirstTutorialTip];
     });
@@ -57,6 +57,7 @@
 - (void)showFifthTutorialTip {
     self.m_ctlPage.currentPage = 4;
     self.m_btnMessage.hidden = NO;
+    [self.m_btnSkip setTitle:@"DONE" forState:UIControlStateNormal];
     
     [self.view addSubview:self.m_viewFifthTip];
     CGRect frame = self.m_viewFifthTip.frame;

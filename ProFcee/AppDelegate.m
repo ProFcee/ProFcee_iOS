@@ -106,20 +106,33 @@
     }];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    [self getUserLocationInformationWithPlacemark:nil];
+}
+
 - (void)getUserLocationInformationWithPlacemark:(CLPlacemark *)placemark {
     [[WebService sharedInstance] getCountries:^(NSArray *aryCountries, NSString *strError) {
         if(!strError) {
             [GlobalService sharedInstance].user_countries = aryCountries;
-            ProFceeCountryObj *objCountry = [[GlobalService sharedInstance] getCountryWithName:placemark.country];
+            ProFceeCountryObj *objCountry = aryCountries[0];
+            if(placemark) {
+                objCountry = [[GlobalService sharedInstance] getCountryWithName:placemark.country];
+            }
             [[WebService sharedInstance] getStatesWithCountryId:objCountry.country_id Completed:^(NSArray *aryStates, NSString *strError) {
                 if(!strError) {
                     [GlobalService sharedInstance].user_states = aryStates;
-                    ProFceeStateObj *objState = [[GlobalService sharedInstance] getStateWithName:placemark.administrativeArea];
+                    ProFceeStateObj *objState = aryStates[0];
+                    if(placemark) {
+                        objState = [[GlobalService sharedInstance] getStateWithName:placemark.administrativeArea];
+                    }
                     objState.state_country = objCountry;
                     [[WebService sharedInstance] getCitiesWithStateId:objState.state_id Completed:^(NSArray *aryCities, NSString *strError) {
                         if(!strError) {
                             [GlobalService sharedInstance].user_cities = aryCities;
-                            ProFceeCityObj *objCity = [[GlobalService sharedInstance] getCityWithName:placemark.locality];
+                            ProFceeCityObj *objCity = aryCities[0];
+                            if(placemark) {
+                                objCity = [[GlobalService sharedInstance] getCityWithName:placemark.locality];
+                            }
                             objCity.city_state = objState;
                             [GlobalService sharedInstance].user_city = objCity;
                             

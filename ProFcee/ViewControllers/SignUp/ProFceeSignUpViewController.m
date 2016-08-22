@@ -50,6 +50,9 @@
     [self.m_txtUserName resignFirstResponder];
     [self.m_txtPassword resignFirstResponder];
     
+    UIViewController *tutorialVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProFceeTutorialViewController"];
+    [self presentViewController:tutorialVC animated:NO completion:nil];
+    
     if([self validateSignUp]) {
         SVPROGRESSHUD_PLEASE_WAIT;
         [[WebService sharedInstance] signUpUserWithEmail:self.m_txtUserEmail.text

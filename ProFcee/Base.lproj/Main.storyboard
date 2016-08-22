@@ -544,7 +544,7 @@ Please check it in order to be able to post new trends</string>
                                                 <rect key="frame" x="160" y="335" width="280" height="50"/>
                                                 <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="corner_radius">
                                                         <real key="value" value="5"/>
@@ -1276,18 +1276,6 @@ Please check it in order to be able to post new trends</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzG-cd-MTg">
                                                 <rect key="frame" x="0.0" y="219" width="600" height="317"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on image to delete it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stu-jC-jaD" customClass="JHLabel">
-                                                        <rect key="frame" x="220" y="15" width="160" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                        </variation>
-                                                    </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_icon_no_content" translatesAutoresizingMaskIntoConstraints="NO" id="Vvt-oi-qha">
                                                         <rect key="frame" x="260" y="119" width="80" height="80"/>
                                                         <constraints>
@@ -1298,6 +1286,18 @@ Please check it in order to be able to post new trends</string>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3r9-gj-asS">
                                                         <rect key="frame" x="0.0" y="47" width="600" height="270"/>
                                                     </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap below to add image or delete it." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stu-jC-jaD" customClass="JHLabel">
+                                                        <rect key="frame" x="185" y="15" width="231" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        </variation>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -2581,7 +2581,7 @@ Please check it in order to be able to post new trends</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
                                                                     </userDefinedRuntimeAttributes>
@@ -3293,7 +3293,9 @@ Please check it in order to be able to post new trends</string>
                             <constraint firstItem="CUw-Ml-p22" firstAttribute="centerX" secondItem="1UA-N1-Zz0" secondAttribute="centerX" id="ChM-yJ-IXR"/>
                             <constraint firstItem="CUw-Ml-p22" firstAttribute="top" secondItem="1UA-N1-Zz0" secondAttribute="bottom" constant="10" id="FBn-fZ-xOD"/>
                             <constraint firstItem="eUV-rc-LQf" firstAttribute="centerX" secondItem="i1S-nh-fol" secondAttribute="centerX" id="FdA-hO-uDN"/>
-                            <constraint firstItem="CUw-Ml-p22" firstAttribute="leading" secondItem="i1S-nh-fol" secondAttribute="leading" constant="10" id="Frk-zb-zwF"/>
+                            <constraint firstItem="CUw-Ml-p22" firstAttribute="leading" secondItem="i1S-nh-fol" secondAttribute="leading" constant="10" id="Frk-zb-zwF">
+                                <variation key="heightClass=regular-widthClass=regular" constant="110"/>
+                            </constraint>
                             <constraint firstItem="5DS-R1-Tkx" firstAttribute="height" secondItem="i1S-nh-fol" secondAttribute="height" id="OaI-nb-F7a"/>
                             <constraint firstItem="1UA-N1-Zz0" firstAttribute="top" secondItem="i1S-nh-fol" secondAttribute="top" id="alk-af-eox"/>
                             <constraint firstItem="5DS-R1-Tkx" firstAttribute="centerX" secondItem="i1S-nh-fol" secondAttribute="centerX" id="bEl-PF-u7K"/>
@@ -3323,14 +3325,14 @@ Please check it in order to be able to post new trends</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ca-8H-Bbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="LX5-fr-Hfd">
-                    <rect key="frame" x="0.0" y="0.0" width="310" height="100"/>
+                    <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial_image_second_tip_ipad" translatesAutoresizingMaskIntoConstraints="NO" id="ksp-iq-sqN">
-                            <rect key="frame" x="0.0" y="0.0" width="310" height="100"/>
+                            <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9M-e6-oeG" customClass="JHButton">
-                            <rect key="frame" x="95" y="60" width="120" height="30"/>
+                            <rect key="frame" x="70" y="60" width="120" height="30"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="31v-pe-zij"/>
@@ -3351,7 +3353,7 @@ Please check it in order to be able to post new trends</string>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agree to a Trend and Share it with Friends" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfs-YX-3t3" customClass="JHLabel">
-                            <rect key="frame" x="55" y="16" width="201" height="34"/>
+                            <rect key="frame" x="30" y="15" width="200" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -3363,11 +3365,11 @@ Please check it in order to be able to post new trends</string>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="g9M-e6-oeG" secondAttribute="bottom" constant="10" id="07W-dA-6CK"/>
-                        <constraint firstItem="sfs-YX-3t3" firstAttribute="leading" secondItem="LX5-fr-Hfd" secondAttribute="leading" constant="55" id="3i8-89-02V"/>
+                        <constraint firstItem="sfs-YX-3t3" firstAttribute="leading" secondItem="LX5-fr-Hfd" secondAttribute="leading" constant="30" id="3i8-89-02V"/>
                         <constraint firstItem="ksp-iq-sqN" firstAttribute="centerY" secondItem="LX5-fr-Hfd" secondAttribute="centerY" id="9wp-6g-Xtq"/>
                         <constraint firstItem="ksp-iq-sqN" firstAttribute="width" secondItem="LX5-fr-Hfd" secondAttribute="width" id="A0A-lq-cW2"/>
                         <constraint firstItem="g9M-e6-oeG" firstAttribute="centerX" secondItem="LX5-fr-Hfd" secondAttribute="centerX" id="ACl-gb-O7k"/>
-                        <constraint firstItem="sfs-YX-3t3" firstAttribute="top" secondItem="LX5-fr-Hfd" secondAttribute="top" constant="16" id="Rco-wA-4Ex"/>
+                        <constraint firstItem="sfs-YX-3t3" firstAttribute="top" secondItem="LX5-fr-Hfd" secondAttribute="top" constant="15" id="Rco-wA-4Ex"/>
                         <constraint firstItem="ksp-iq-sqN" firstAttribute="centerX" secondItem="LX5-fr-Hfd" secondAttribute="centerX" id="ilQ-oy-BnR"/>
                         <constraint firstItem="sfs-YX-3t3" firstAttribute="centerX" secondItem="LX5-fr-Hfd" secondAttribute="centerX" id="kFX-hV-OyZ"/>
                         <constraint firstItem="ksp-iq-sqN" firstAttribute="height" secondItem="LX5-fr-Hfd" secondAttribute="height" id="nPu-Rz-j3f"/>
@@ -3913,8 +3915,9 @@ Please check it in order to be able to post new trends</string>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Bold"/>
                                                         </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <rect key="frame" x="39" y="15" width="324" height="24"/>
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgd-Fa-zLA" customClass="JHLabel">
@@ -3930,8 +3933,9 @@ Karnataka, India</string>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="custom_font" value=".SFUIText-Regular"/>
                                                         </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <rect key="frame" x="81" y="54" width="239" height="120"/>
                                                         </variation>
                                                     </label>
                                                 </subviews>

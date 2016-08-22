@@ -189,8 +189,8 @@
                                               } else {
                                                   if(![GlobalService sharedInstance].user_me.my_user.user_active) {
                                                       SVPROGRESSHUD_DISMISS;
-                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please active your account"
-                                                                                                      message:@"In order to post a trend you have to activate your account. We’ve sent you the verification email. If you didn’t get it, we can resend it for you"
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please activate your account"
+                                                                                                      message:@"We have sent verification email. Please confirm it before you are allowed to post Predictions."
                                                                                                      delegate:self
                                                                                             cancelButtonTitle:@"Cancel"
                                                                                             otherButtonTitles:@"Resend email", nil];

@@ -158,7 +158,7 @@
     }];
 }
 
-- (IBAction)onclickBtnGetMe:(id)sender {
+- (IBAction)onclickBtnGetMe:(id)sender {    
     [GlobalService sharedInstance].user_me.my_user.user_city_id = [GlobalService sharedInstance].user_city.city_id;
     [GlobalService sharedInstance].user_me.my_user.user_city = [GlobalService sharedInstance].user_city.city_name;
     

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <TOCropViewController/TOCropViewController.h>
 
-@interface ProFceeEditProfileViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, TOCropViewControllerDelegate> {
+@interface ProFceeEditProfileViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, TOCropViewControllerDelegate, UITextFieldDelegate> {
     BOOL            m_hasAvatar;
     BOOL            m_hasBanner;
     

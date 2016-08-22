@@ -70,18 +70,10 @@
     m_tmpUserObj.user_city = [GlobalService sharedInstance].user_city.city_name;
     
     // get user information
-    ProFceeProfileInputTableViewCell *cell = [self.m_tblProfile cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    m_tmpUserObj.user_name = cell.m_txtValue.text;
     if(m_tmpUserObj.user_name.length == 0) {
         [self.view makeToast:TOAST_MESSAGE_NO_USERNAME duration:2.f position:CSToastPositionCenter];
         return;
     }
-    
-    cell = [self.m_tblProfile cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    m_tmpUserObj.user_organisation = cell.m_txtValue.text;
-    
-    cell = [self.m_tblProfile cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    m_tmpUserObj.user_designation = cell.m_txtValue.text;
     
     SVPROGRESSHUD_PLEASE_WAIT;
     [[WebService sharedInstance] updateUserWithUserObj:m_tmpUserObj
@@ -276,6 +268,9 @@
             cell.m_txtValue.text = m_tmpUserObj.user_designation;
         }
         
+        cell.m_txtValue.delegate = self;
+        cell.m_txtValue.tag = indexPath.row + 10;
+        
         return cell;
     } if(indexPath.section == 1) {
         ProFceeProfileSelectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ProFceeProfileSelectTableViewCell class])];
@@ -340,6 +335,17 @@
                                              cancelBlock:nil
                                                   origin:cell];
         }
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if(textField.tag == 10) {
+        m_tmpUserObj.user_name = textField.text;
+    } else if(textField.tag == 11) {
+        m_tmpUserObj.user_organisation = textField.text;
+    } else {
+        m_tmpUserObj.user_designation = textField.text;
     }
 }
 
